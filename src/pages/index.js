@@ -526,6 +526,11 @@ function Navigation() {
                 🔄 Transfers
               </Button>
             </Link>
+            <Link href="/alerts">
+              <Button variant="ghost" className="hover:bg-emerald-50 hover:text-emerald-600 transition-all duration-200">
+                🔔 Alerts
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
