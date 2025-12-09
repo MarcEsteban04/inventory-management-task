@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "productId": 1,
+    "fromWarehouseId": 1,
+    "toWarehouseId": 2,
+    "quantity": 20,
+    "notes": "test",
+    "date": "2025-12-09T07:20:35.862Z",
+    "status": "completed"
+  }
+]

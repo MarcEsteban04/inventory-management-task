@@ -523,6 +523,11 @@ function Navigation() {
                 📊 Stock Levels
               </Button>
             </Link>
+            <Link href="/transfers">
+              <Button variant="ghost" className="hover:bg-emerald-50 hover:text-emerald-600 transition-all duration-200">
+                🔄 Transfers
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
