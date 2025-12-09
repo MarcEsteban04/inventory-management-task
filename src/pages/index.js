@@ -18,6 +18,9 @@ import {
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { exportInventoryData } from '@/lib/exportUtils';
+import { useKeyboardShortcuts } from '@/lib/keyboardShortcuts';
+import KeyboardShortcutsModal from '@/components/KeyboardShortcutsModal';
 
 // Eco-friendly color palette
 const COLORS = {
@@ -40,6 +43,7 @@ export default function Home() {
   const [stock, setStock] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [showShortcutsModal, setShowShortcutsModal] = useState(false);
 
   useEffect(() => {
     // Fetch all data with error handling
@@ -140,6 +144,40 @@ export default function Home() {
     .sort((a, b) => b.stockValue - a.stockValue)
     .slice(0, 5);
 
+  // Export handlers
+  const handleExportCSV = () => {
+    const exportData = inventoryOverview.map(item => ({
+      sku: item.sku,
+      productName: item.name,
+      category: item.category,
+      currentStock: item.totalQuantity,
+      reorderPoint: item.reorderPoint,
+      stockValue: item.stockValue.toFixed(2),
+      status: item.isCritical ? 'Critical' : item.isLowStock ? 'Low Stock' : item.isOverstocked ? 'Overstocked' : 'Adequate',
+    }));
+    exportInventoryData(exportData, 'csv');
+  };
+
+  const handleExportPDF = () => {
+    const exportData = inventoryOverview.map(item => ({
+      sku: item.sku,
+      productName: item.name,
+      category: item.category,
+      currentStock: item.totalQuantity,
+      reorderPoint: item.reorderPoint,
+      stockValue: item.stockValue.toFixed(2),
+      status: item.isCritical ? 'Critical' : item.isLowStock ? 'Low Stock' : item.isOverstocked ? 'Overstocked' : 'Adequate',
+    }));
+    exportInventoryData(exportData, 'pdf');
+  };
+
+  // Keyboard shortcuts
+  useKeyboardShortcuts({
+    showShortcuts: () => setShowShortcutsModal(true),
+    exportCSV: handleExportCSV,
+    exportPDF: handleExportPDF,
+  });
+
   if (loading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-green-50">
@@ -197,6 +235,28 @@ export default function Home() {
                 📦 Add Stock
               </Button>
             </Link>
+            <Button
+              onClick={handleExportCSV}
+              variant="outline"
+              className="border-blue-600 text-blue-600 hover:bg-blue-50 shadow-md hover:shadow-lg transition-all duration-300"
+            >
+              📊 Export CSV
+            </Button>
+            <Button
+              onClick={handleExportPDF}
+              variant="outline"
+              className="border-purple-600 text-purple-600 hover:bg-purple-50 shadow-md hover:shadow-lg transition-all duration-300"
+            >
+              📄 Export PDF
+            </Button>
+            <Button
+              onClick={() => setShowShortcutsModal(true)}
+              variant="outline"
+              className="border-gray-600 text-gray-600 hover:bg-gray-50 shadow-md hover:shadow-lg transition-all duration-300"
+              title="Keyboard Shortcuts (Ctrl+K)"
+            >
+              ⌨️
+            </Button>
           </div>
         </div>
 
@@ -485,6 +545,12 @@ export default function Home() {
           <p className="mt-1">Last updated: {new Date().toLocaleString()}</p>
         </div>
       </main>
+
+      {/* Keyboard Shortcuts Modal */}
+      <KeyboardShortcutsModal
+        isOpen={showShortcutsModal}
+        onClose={() => setShowShortcutsModal(false)}
+      />
     </div>
   );
 }
