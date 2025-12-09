@@ -103,6 +103,9 @@ export default function Stock() {
           <Button color="inherit" component={Link} href="/stock">
             Stock Levels
           </Button>
+          <Button color="inherit" component={Link} href="/transfers">
+            Transfers
+          </Button>
         </Toolbar>
       </AppBar>
 
@@ -111,10 +114,10 @@ export default function Stock() {
           <Typography variant="h4" component="h1">
             Stock Levels
           </Typography>
-          <Button 
-            variant="contained" 
-            color="primary" 
-            component={Link} 
+          <Button
+            variant="contained"
+            color="primary"
+            component={Link}
             href="/stock/add"
           >
             Add Stock Record

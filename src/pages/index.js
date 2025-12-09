@@ -180,10 +180,10 @@ export default function Home() {
         <div className="mb-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
             <h1 className="text-4xl font-bold text-gray-900 mb-2 bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent animate-fade-in">
-              Inventory Dashboard
+              Dashboard
             </h1>
             <p className="text-gray-600">
-              Welcome to GreenSupply Co - Sustainable Product Distribution
+              Multi-Warehouse Inventory Dashboard
             </p>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -496,10 +496,8 @@ function Navigation() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-            <div className="text-3xl">🌱</div>
             <div>
-              <h1 className="text-xl font-bold text-gray-900">GreenSupply Co</h1>
-              <p className="text-xs text-gray-500">Sustainable Distribution</p>
+              <h1 className="text-xl font-bold text-gray-900">Inventory Management System</h1>
             </div>
           </Link>
           <div className="flex items-center gap-2">

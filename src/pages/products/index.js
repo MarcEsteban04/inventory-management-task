@@ -85,6 +85,9 @@ export default function Products() {
           <Button color="inherit" component={Link} href="/stock">
             Stock Levels
           </Button>
+          <Button color="inherit" component={Link} href="/transfers">
+            Transfers
+          </Button>
         </Toolbar>
       </AppBar>
 
@@ -93,10 +96,10 @@ export default function Products() {
           <Typography variant="h4" component="h1">
             Products
           </Typography>
-          <Button 
-            variant="contained" 
-            color="primary" 
-            component={Link} 
+          <Button
+            variant="contained"
+            color="primary"
+            component={Link}
             href="/products/add"
           >
             Add Product

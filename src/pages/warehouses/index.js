@@ -85,6 +85,9 @@ export default function Warehouses() {
           <Button color="inherit" component={Link} href="/stock">
             Stock Levels
           </Button>
+          <Button color="inherit" component={Link} href="/transfers">
+            Transfers
+          </Button>
         </Toolbar>
       </AppBar>
 
@@ -93,10 +96,10 @@ export default function Warehouses() {
           <Typography variant="h4" component="h1">
             Warehouses
           </Typography>
-          <Button 
-            variant="contained" 
-            color="primary" 
-            component={Link} 
+          <Button
+            variant="contained"
+            color="primary"
+            component={Link}
             href="/warehouses/add"
           >
             Add Warehouse
