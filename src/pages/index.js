@@ -213,39 +213,39 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-green-50">
       <Navigation />
 
-      <main className="container mx-auto px-4 py-8 max-w-7xl">
+      <main className="container mx-auto px-4 py-6 md:py-8 max-w-7xl">
         {/* Header with Quick Actions */}
-        <div className="mb-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div className="mb-6 md:mb-8 flex flex-col gap-4">
           <div>
-            <h1 className="text-4xl font-bold text-gray-900 mb-2 bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent animate-fade-in">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2 bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent animate-fade-in">
               Dashboard
             </h1>
-            <p className="text-gray-600">
+            <p className="text-sm md:text-base text-gray-600">
               Multi-Warehouse Inventory Dashboard
             </p>
           </div>
           <div className="flex flex-wrap gap-2">
             <Link href="/products/add">
-              <Button className="bg-emerald-600 hover:bg-emerald-700 shadow-lg hover:shadow-xl transition-all duration-300">
+              <Button className="bg-emerald-600 hover:bg-emerald-700 shadow-lg hover:shadow-xl transition-all duration-300 text-sm md:text-base">
                 ➕ Add Product
               </Button>
             </Link>
             <Link href="/stock/add">
-              <Button variant="outline" className="border-emerald-600 text-emerald-600 hover:bg-emerald-50 shadow-md hover:shadow-lg transition-all duration-300">
+              <Button variant="outline" className="border-emerald-600 text-emerald-600 hover:bg-emerald-50 shadow-md hover:shadow-lg transition-all duration-300 text-sm md:text-base">
                 📦 Add Stock
               </Button>
             </Link>
             <Button
               onClick={handleExportCSV}
               variant="outline"
-              className="border-blue-600 text-blue-600 hover:bg-blue-50 shadow-md hover:shadow-lg transition-all duration-300"
+              className="border-blue-600 text-blue-600 hover:bg-blue-50 shadow-md hover:shadow-lg transition-all duration-300 text-sm md:text-base"
             >
               📊 Export CSV
             </Button>
             <Button
               onClick={handleExportPDF}
               variant="outline"
-              className="border-purple-600 text-purple-600 hover:bg-purple-50 shadow-md hover:shadow-lg transition-all duration-300"
+              className="border-purple-600 text-purple-600 hover:bg-purple-50 shadow-md hover:shadow-lg transition-all duration-300 text-sm md:text-base"
             >
               📄 Export PDF
             </Button>
@@ -333,14 +333,14 @@ export default function Home() {
           {/* Warehouse Distribution Chart */}
           <Card className="shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-t-emerald-500">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <span className="text-2xl">🏭</span>
+              <CardTitle className="flex items-center gap-2 text-lg md:text-xl">
+                <span className="text-xl md:text-2xl">🏭</span>
                 Warehouse Distribution
               </CardTitle>
-              <CardDescription>Stock quantity and value by location</CardDescription>
+              <CardDescription className="text-sm">Stock quantity and value by location</CardDescription>
             </CardHeader>
             <CardContent>
-              <ResponsiveContainer width="100%" height={300}>
+              <ResponsiveContainer width="100%" height={250} className="md:h-[300px]">
                 <BarChart data={warehouseData}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
                   <XAxis
@@ -375,14 +375,14 @@ export default function Home() {
           {/* Stock Status Pie Chart */}
           <Card className="shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-t-blue-500">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <span className="text-2xl">📊</span>
+              <CardTitle className="flex items-center gap-2 text-lg md:text-xl">
+                <span className="text-xl md:text-2xl">📊</span>
                 Stock Status Distribution
               </CardTitle>
-              <CardDescription>Products by stock level category</CardDescription>
+              <CardDescription className="text-sm">Products by stock level category</CardDescription>
             </CardHeader>
             <CardContent>
-              <ResponsiveContainer width="100%" height={300}>
+              <ResponsiveContainer width="100%" height={250} className="md:h-[300px]">
                 <PieChart>
                   <Pie
                     data={stockStatusData}
@@ -405,16 +405,16 @@ export default function Home() {
           </Card>
 
           {/* Category Distribution Chart */}
-          <Card className="shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-t-amber-500">
+          <Card className="shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-t-purple-500">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <span className="text-2xl">📦</span>
+              <CardTitle className="flex items-center gap-2 text-lg md:text-xl">
+                <span className="text-xl md:text-2xl">📦</span>
                 Category Distribution
               </CardTitle>
-              <CardDescription>Stock quantity by product category</CardDescription>
+              <CardDescription className="text-sm">Inventory breakdown by category</CardDescription>
             </CardHeader>
             <CardContent>
-              <ResponsiveContainer width="100%" height={300}>
+              <ResponsiveContainer width="100%" height={250} className="md:h-[300px]">
                 <BarChart data={categoryData} layout="vertical">
                   <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
                   <XAxis type="number" tick={{ fontSize: 12 }} />
@@ -435,13 +435,13 @@ export default function Home() {
           </Card>
 
           {/* Top Products by Value */}
-          <Card className="shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-t-purple-500">
+          <Card className="shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-t-amber-500">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <span className="text-2xl">⭐</span>
+              <CardTitle className="flex items-center gap-2 text-lg md:text-xl">
+                <span className="text-xl md:text-2xl">💰</span>
                 Top Products by Value
               </CardTitle>
-              <CardDescription>Highest value inventory items</CardDescription>
+              <CardDescription className="text-sm">Highest value inventory items</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
@@ -470,11 +470,11 @@ export default function Home() {
         {/* Inventory Overview Table */}
         <Card className="shadow-lg border-t-4 border-t-emerald-500">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <span className="text-2xl">📋</span>
+            <CardTitle className="flex items-center gap-2 text-lg md:text-xl">
+              <span className="text-xl md:text-2xl">📋</span>
               Inventory Overview
             </CardTitle>
-            <CardDescription>Complete product inventory status</CardDescription>
+            <CardDescription className="text-sm">Complete product inventory across all warehouses</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="overflow-x-auto">
