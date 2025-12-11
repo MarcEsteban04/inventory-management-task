@@ -406,16 +406,23 @@ export default function TransfersPage() {
 
 // Navigation Component
 function Navigation() {
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
     return (
         <nav className="bg-white shadow-md border-b border-gray-200 sticky top-0 z-50">
             <div className="container mx-auto px-4">
                 <div className="flex items-center justify-between h-16">
                     <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
                         <div>
-                            <h1 className="text-xl font-bold text-gray-900">Inventory Management System</h1>
+                            <h1 className="text-lg md:text-xl font-bold text-gray-900">
+                                <span className="md:hidden">IMS</span>
+                                <span className="hidden md:inline">Inventory Management System</span>
+                            </h1>
                         </div>
                     </Link>
-                    <div className="flex items-center gap-2">
+
+                    {/* Desktop Navigation */}
+                    <div className="hidden md:flex items-center gap-2">
                         <Link href="/">
                             <Button variant="ghost" className="hover:bg-emerald-50 hover:text-emerald-600 transition-all duration-200">
                                 🏠 Dashboard
@@ -447,7 +454,68 @@ function Navigation() {
                             </Button>
                         </Link>
                     </div>
+
+                    {/* Mobile Hamburger Button */}
+                    <button
+                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+                        aria-label="Toggle menu"
+                    >
+                        <svg
+                            className="w-6 h-6 text-gray-700"
+                            fill="none"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            {mobileMenuOpen ? (
+                                <path d="M6 18L18 6M6 6l12 12" />
+                            ) : (
+                                <path d="M4 6h16M4 12h16M4 18h16" />
+                            )}
+                        </svg>
+                    </button>
                 </div>
+
+                {/* Mobile Menu */}
+                {mobileMenuOpen && (
+                    <div className="md:hidden py-4 border-t border-gray-200 animate-fade-in">
+                        <div className="flex flex-col space-y-2">
+                            <Link href="/" onClick={() => setMobileMenuOpen(false)}>
+                                <Button variant="ghost" className="w-full justify-start hover:bg-emerald-50 hover:text-emerald-600 transition-all duration-200">
+                                    🏠 Dashboard
+                                </Button>
+                            </Link>
+                            <Link href="/products" onClick={() => setMobileMenuOpen(false)}>
+                                <Button variant="ghost" className="w-full justify-start hover:bg-emerald-50 hover:text-emerald-600 transition-all duration-200">
+                                    📦 Products
+                                </Button>
+                            </Link>
+                            <Link href="/warehouses" onClick={() => setMobileMenuOpen(false)}>
+                                <Button variant="ghost" className="w-full justify-start hover:bg-emerald-50 hover:text-emerald-600 transition-all duration-200">
+                                    🏭 Warehouses
+                                </Button>
+                            </Link>
+                            <Link href="/stock" onClick={() => setMobileMenuOpen(false)}>
+                                <Button variant="ghost" className="w-full justify-start hover:bg-emerald-50 hover:text-emerald-600 transition-all duration-200">
+                                    📊 Stock Levels
+                                </Button>
+                            </Link>
+                            <Link href="/transfers" onClick={() => setMobileMenuOpen(false)}>
+                                <Button variant="ghost" className="w-full justify-start bg-emerald-50 text-emerald-600 hover:bg-emerald-100 transition-all duration-200">
+                                    🔄 Transfers
+                                </Button>
+                            </Link>
+                            <Link href="/alerts" onClick={() => setMobileMenuOpen(false)}>
+                                <Button variant="ghost" className="w-full justify-start hover:bg-emerald-50 hover:text-emerald-600 transition-all duration-200">
+                                    🔔 Alerts
+                                </Button>
+                            </Link>
+                        </div>
+                    </div>
+                )}
             </div>
         </nav>
     );
