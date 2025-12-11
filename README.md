@@ -249,8 +249,7 @@ Good luck! 💪
 
 ## Developer Information
 - **Name:** Marc Esteban
-- **Completion Date:** December 8, 2024
-- **Total Time:** ~12 hours
+- **Completion Date:** December 11, 2025
 - **GitHub Repository:** https://github.com/MarcEsteban04/inventory-management-task
 
 ## ✅ Features Completed
@@ -710,9 +709,11 @@ Navigate to http://localhost:3000
 
 ## 🎥 Video Walkthrough
 
-**Link:** [To be provided]
+**Link:** [Watch on Google Drive](https://drive.google.com/file/d/1qJI5-ih8-c-e80LUwouQgymRLDapf_zF/view?usp=sharing)
 
-**Duration:** ~8 minutes
+**Duration:** 8 minutes 18 seconds
+
+**Recording Tool:** OBS Studio
 
 **Contents:**
 1. Dashboard demonstration (responsive design showcase)
