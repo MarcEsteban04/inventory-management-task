@@ -722,17 +722,6 @@ Navigate to http://localhost:3000
 4. Code walkthrough (key technical decisions)
 5. Reflection (achievements and improvements)
 
-## 📊 Project Statistics
-
-- **Total Files Created:** 15+
-- **Total Lines of Code:** ~2,500+
-- **Components Created:** 10+
-- **API Endpoints:** 6
-- **Data Files:** 5
-- **Pages:** 6 (Dashboard, Products, Warehouses, Stock, Transfers, Alerts)
-- **Git Commits:** 9
-- **Development Time:** ~14 hours
-
 ## 🎯 What I'm Proud Of
 
 1. **Clean Code Architecture** - Well-organized, maintainable, and scalable

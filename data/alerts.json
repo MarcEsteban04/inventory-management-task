@@ -4,5 +4,11 @@
     "acknowledged": true,
     "acknowledgedAt": "2025-12-09T07:32:23.128Z",
     "acknowledgedBy": "Manager"
+  },
+  {
+    "productId": 2,
+    "acknowledged": true,
+    "acknowledgedAt": "2025-12-11T09:02:39.863Z",
+    "acknowledgedBy": "Manager"
   }
 ]

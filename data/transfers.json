@@ -8,5 +8,35 @@
     "notes": "test",
     "date": "2025-12-09T07:20:35.862Z",
     "status": "completed"
+  },
+  {
+    "id": 2,
+    "productId": 1,
+    "fromWarehouseId": 1,
+    "toWarehouseId": 2,
+    "quantity": 50,
+    "notes": "test",
+    "date": "2025-12-11T03:59:26.910Z",
+    "status": "completed"
+  },
+  {
+    "id": 3,
+    "productId": 1,
+    "fromWarehouseId": 1,
+    "toWarehouseId": 2,
+    "quantity": 30,
+    "notes": "",
+    "date": "2025-12-11T08:33:09.737Z",
+    "status": "completed"
+  },
+  {
+    "id": 4,
+    "productId": 1,
+    "fromWarehouseId": 1,
+    "toWarehouseId": 2,
+    "quantity": 30,
+    "notes": "",
+    "date": "2025-12-11T08:40:18.667Z",
+    "status": "completed"
   }
 ]
